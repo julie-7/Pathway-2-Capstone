@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-8">
+            <button onclick="">books</button>
+
+        </div>
+    </div>
+    <div class="col-4">
+        <p class="display-6" id="usernamelabel">
+        <h1 class="modal-title fs-5" id="examplemodallabel">books</h1>
+        <div class="modal-body">
+            <ul class="list-group" id="listofbooks">
+
+            </ul>
+        </div>
+    </div>
+    <div id="modalbooks" class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="examplemodallabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="examplemodallabel">book creation</h1>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>title</label>
+                        <div class="mb-3">
+                            <label class="form-label" id="inputtitle">
+                                <input type="text" class="form-control" id="inputtitle">
+                        </div>
+
+                        <label>Genre</label>
+                        <div class="mb-3">
+                            <label class="form-label" id="inputgenre">
+                                <input type="text" class="form-control" id="inputgenre">
+                        </div>
+
+                        <label>Status</label>
+                        <div class="mb-3">
+                            <label class="form-label" id="inputstatus">
+                                <input type="text" class="form-control" id="inputstatus">
+                        </div>
+                    </form>
+                    <div class="modalfooter">
+                        <button type="button" onclick="createbook" class="btn btn-primary">save book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+</body>
+</html>
