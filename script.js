@@ -17,33 +17,38 @@ const showmodalbooks = () => {
 }
 
 const getbooks = async () => {
-    let response = await fetch(
-        let`url` = `${endpoint}?order=title.asc`
 
-    `let response` = await fetch(url,{
-            method: `GET`,
-            headers: {
-                "apikey": token,
-                "Authorization": token
-            }
-        })
-    )
+    let url = `${endpoint}?order=title.asc`
+
+    let response = await fetch(url, {
+        method: `GET`,
+        headers: {
+            "apikey": token,
+            "Authorization": token
+        }
+    })
+
     let body = await response.json()
-    if(response.ok){
+    if (response.ok) {
 
-        let tablelayout=`<tr>
+        let tablelayout = `<tr>
         <th></th>
         <th></th>
         <th></th>
         <th></th>
             </tr>`
-        for(let i=0;i<body.length;i++){
+        for (let i = 0; i < body.length; i++) {
             renderbooks(body)
 
-            tablelayout`tr
+            tablelayout+=`<tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>`
             
-            `
-        
+            
+
         }
     }
 }
@@ -51,15 +56,17 @@ const getbooks = async () => {
 
 
 const createbook = async () => {
+    event.preventDefault()
     let title = inputtitle.value
     let author = inputauthor.value
     let status = inputstatus.value
-
+    let note = inputnote.value
 
     let book = {
         title,
         author,
-        status
+        status,
+        note
     }
 
 
@@ -97,5 +104,5 @@ function renderbooks(data) {
         <td>${data[i].notes}</td>
         <tr>`
     }
-        loadbooks.innerHTML = tablelayout
+    loadbooks.innerHTML = tablelayout
 }
