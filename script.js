@@ -40,18 +40,19 @@ const getbooks = async () => {
         for (let i = 0; i < body.length; i++) {
             renderbooks(body)
 
-            tablelayout+=`<tr>
+            tablelayout += `<tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             </tr>`
-            
-            
+
+
 
         }
     }
 }
+
 
 
 
@@ -60,13 +61,13 @@ const createbook = async () => {
     let title = inputtitle.value
     let author = inputauthor.value
     let status = inputstatus.value
-    let note = inputnote.value
+    let notes = inputnotes.value
 
     let book = {
         title,
         author,
         status,
-        note
+        notes
     }
 
 
@@ -75,9 +76,10 @@ const createbook = async () => {
         headers: {
             "apikey": token,
             "Authorization": token,
-            "Content-Type": `application\json`
+            "Content-Type": `application/json`
 
         },
+        body: JSON.stringify(book)
     })
 
     if (response.ok) {
